@@ -235,7 +235,7 @@ class PageArmee {
   placerAntisondeSuffisant(indUnite, nbTroupeDispo) {
     let securite = $("#t").attr("name") + "=" + $("#t").val();
     $.post(
-      "http://" + Utils.serveur + ".fourmizzz.fr/Armee.php?deplacement=3&" + securite,
+      Utils.baseURL + "/Armee.php?deplacement=3&" + securite,
       (data) => {
         let correspondanceUnite = [1, 2, 3, 4, 5, 6, 14, 7, 8, 9, 10, 13, 11, 12];
         // si on a pas assez de troupes on prend un nombre au hasard
@@ -251,9 +251,8 @@ class PageArmee {
           );
         // on place l'antisonde en dome
         $.post(
-          "http://" +
-            Utils.serveur +
-            ".fourmizzz.fr/Armee.php?Transferer=Envoyer&LieuOrigine=3&LieuDestination=2&ChoixUnite=unite" +
+          Utils.baseURL +
+            "/Armee.php?Transferer=Envoyer&LieuOrigine=3&LieuDestination=2&ChoixUnite=unite" +
             correspondanceUnite[indUnite] +
             "&nbTroupes=" +
             nbTroupes +
@@ -273,9 +272,8 @@ class PageArmee {
                 Math.random() * (nbTroupeDispo - nbTroupeDispo * 0.9) + nbTroupeDispo * 0.9,
               );
             $.post(
-              "http://" +
-                Utils.serveur +
-                ".fourmizzz.fr/Armee.php?Transferer=Envoyer&LieuOrigine=3&LieuDestination=1&ChoixUnite=unite" +
+              Utils.baseURL +
+                "/Armee.php?Transferer=Envoyer&LieuOrigine=3&LieuDestination=1&ChoixUnite=unite" +
                 correspondanceUnite[indUnite] +
                 "&nbTroupes=" +
                 nbTroupes +
@@ -297,14 +295,13 @@ class PageArmee {
   placerAntisondeInsuffisant(indUnite, nbTroupeDispo) {
     let securite = $("#t").attr("name") + "=" + $("#t").val();
     $.post(
-      "http://" + Utils.serveur + ".fourmizzz.fr/Armee.php?deplacement=3&" + securite,
+      Utils.baseURL + "/Armee.php?deplacement=3&" + securite,
       (data) => {
         let correspondanceUnite = [1, 2, 3, 4, 5, 6, 14, 7, 8, 9, 10, 13, 11, 12];
         // on place l'antisonde en dome
         $.post(
-          "http://" +
-            Utils.serveur +
-            ".fourmizzz.fr/Armee.php?Transferer=Envoyer&LieuOrigine=3&LieuDestination=2&ChoixUnite=unite" +
+          Utils.baseURL +
+            "/Armee.php?Transferer=Envoyer&LieuOrigine=3&LieuDestination=2&ChoixUnite=unite" +
             correspondanceUnite[indUnite] +
             "&nbTroupes=" +
             Math.round(nbTroupeDispo * 0.3) +
@@ -312,9 +309,8 @@ class PageArmee {
             securite,
           (data) => {
             $.post(
-              "http://" +
-                Utils.serveur +
-                ".fourmizzz.fr/Armee.php?Transferer=Envoyer&LieuOrigine=3&LieuDestination=1&ChoixUnite=unite" +
+              Utils.baseURL +
+                "/Armee.php?Transferer=Envoyer&LieuOrigine=3&LieuDestination=1&ChoixUnite=unite" +
                 correspondanceUnite[indUnite] +
                 "&nbTroupes=1&" +
                 securite,

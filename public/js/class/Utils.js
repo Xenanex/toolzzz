@@ -20,6 +20,20 @@ class Utils {
     return location.hostname.split(".")[0].toUpperCase();
   }
   /**
+  * Renvoie le serveur sur lequel joue le joueur.
+  *
+  * @static
+  * @method baseURL
+  * @return {String} la baseURL en cours.
+  */
+  static get baseURL()
+  {
+    if(this.serveur == "S5")
+      return "https://" + this.serveur + ".fourmizzz.fr"
+    else
+      return "http://" + this.serveur + ".fourmizzz.fr"
+  }
+  /**
    *
    */
   static get alliance() {

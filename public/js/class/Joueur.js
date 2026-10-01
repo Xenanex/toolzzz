@@ -493,7 +493,7 @@ class Joueur {
    */
   getProfil() {
     return $.ajax({
-      url: "http://" + Utils.serveur + ".fourmizzz.fr/Membre.php?Pseudo=" + this._pseudo,
+      url: Utils.baseURL + "/Membre.php?Pseudo=" + this._pseudo,
     });
   }
   /**
@@ -558,7 +558,7 @@ class Joueur {
         return elt == -1;
       })
     )
-      return $.ajax({ url: "http://" + Utils.serveur + ".fourmizzz.fr/construction.php" });
+      return $.ajax({ url: Utils.baseURL + "/construction.php" });
     return null;
   }
   /**
@@ -607,7 +607,7 @@ class Joueur {
         return elt == -1;
       })
     )
-      return $.ajax({ url: "http://" + Utils.serveur + ".fourmizzz.fr/laboratoire.php" });
+      return $.ajax({ url: Utils.baseURL + "/laboratoire.php" });
     return null;
   }
   /**
@@ -741,7 +741,7 @@ class Joueur {
   static rechercher(elt) {
     return $.ajax({
       type: "post",
-      url: "http://" + Utils.serveur + ".fourmizzz.fr/classementAlliance.php",
+      url: Utils.baseURL + "/classementAlliance.php",
       data: {
         requete: elt,
         recherche: 1,
